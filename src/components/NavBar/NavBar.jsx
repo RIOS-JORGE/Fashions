@@ -8,6 +8,7 @@ import {
   XMarkIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
+import CartWidget from "../CartWidget/CartWidget";
 
 const navigation = [
   { name: "fashions", href: "#", current: true },
@@ -74,6 +75,7 @@ export default function NavBar() {
                   <span className="sr-only">View notifications</span>
                   <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
+                <CartWidget />
               </div>
             </div>
           </div>

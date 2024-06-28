@@ -1,7 +1,7 @@
-import productos from "./productosMasculinos.json";
+//import productos from "./productosMasculinos.json";
 
-const ListItems = () => {
-  function api() {
+const ItemListContainer = ({ mensaje }) => {
+  /*  function api() {
     const div = document.querySelector(".divContainer");
     const cardContain = document.createElement("div");
     const elementos = productos.productosMasculinos;
@@ -22,15 +22,17 @@ const ListItems = () => {
       }
       div.appendChild(cardContain);
     }
-  }
+  }*/
 
   return (
     <>
-      <div className="divContainer w-full bg-black pt-8">
-        <button onClick={api}>llamar</button>
+      <div className="divContainer w-full text-white bg-black pt-8">
+        <h1 className=" text-center text-5xl text-yellow-400  shadow-lg shadow-yellow-400 sm:text-7xl">
+          {mensaje}
+        </h1>
       </div>
     </>
   );
 };
 
-export default ListItems;
+export default ItemListContainer;
