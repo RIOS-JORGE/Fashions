@@ -3,11 +3,8 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  ShoppingBagIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import CartWidget from "../CartWidget/CartWidget";
 
 const navigation = [
   { name: "fashions", href: "#", current: true },
@@ -72,7 +69,7 @@ export default function NavBar() {
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
-                  <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
+                  <CartWidget />
                 </button>
               </div>
             </div>
