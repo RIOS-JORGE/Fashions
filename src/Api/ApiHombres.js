@@ -1,5 +1,5 @@
-{
-  "productosMasculinos": {
+const apiHombres= {
+  "productosMasculinos":{
     "camisas": [
       {
         "nombre": "Camisa de vestir blanca",
@@ -98,3 +98,13 @@
     ]
   }
 }
+
+
+
+const ApiHombres = ()=>{
+  return new Promise((resolve) => {
+   setTimeout(()=>{resolve(apiHombres)},1500)
+  })
+}
+
+export default ApiHombres

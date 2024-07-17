@@ -5,10 +5,11 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "fashions", href: "#", current: true },
-  { name: "Man", href: "#", current: false },
+  { name: "fashions", href: "/", current: true },
+  { name: "Man", href: "/productos", current: false },
   { name: "Woman", href: "#", current: false },
   { name: "Childrens", href: "#", current: false },
 ];
