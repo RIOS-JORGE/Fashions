@@ -1,30 +1,6 @@
-import { useState, useEffect } from "react";
-import ApiHombres from "../../Api/ApiHombres";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
 
-const ItemList = () => {
-  const [productos, setProductos] = useState([]);
-  useEffect(() => {
-    ApiHombres().then((res) => setProductos(res.productosMasculinos));
-  }, []);
-
-  const [camisas, setCamisas] = useState([]);
-  useEffect(() => {
-    ApiHombres().then((res) => setCamisas(res.productosMasculinos.camisas));
-  }, []);
-
-  const [pantalones, setPantalones] = useState([]);
-  useEffect(() => {
-    ApiHombres().then((res) =>
-      setPantalones(res.productosMasculinos.pantalones)
-    );
-  }, []);
-
-  const [zapatos, setZapatos] = useState([]);
-  useEffect(() => {
-    ApiHombres().then((res) => setZapatos(res.productosMasculinos.zapatos));
-  }, []);
-
+const ItemList = ({ productos }) => {
   return (
     <>
       {productos.length === 0 ? (
@@ -32,11 +8,7 @@ const ItemList = () => {
           Loading...
         </h1>
       ) : (
-        <ItemListContainer
-          camisas={camisas}
-          pantalones={pantalones}
-          zapatos={zapatos}
-        />
+        <ItemListContainer productos={productos} />
       )}
     </>
   );
