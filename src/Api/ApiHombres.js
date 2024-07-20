@@ -6,7 +6,7 @@ const apiHombres = {
       precio: 39.99,
       descripcion:
         "Camisa clásica de vestir blanca, ideal para ocasiones formales.",
-      imagen: "src/assets/camisasHombres/camisablanca.png",
+      imagen: "public/camisasHombres/camisablanca.png",
     },
     {
       id: 2,
@@ -14,7 +14,7 @@ const apiHombres = {
       precio: 29.99,
       descripcion:
         "Camisa casual de manga larga con patrón de cuadros, perfecta para un look relajado.",
-      imagen: "src/assets/camisasHombres/camisarayada.png",
+      imagen: "public/camisasHombres/camisarayada.png",
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ const apiHombres = {
       precio: 34.99,
       descripcion:
         "Camisa ligera de lino en color azul, ideal para climas cálidos.",
-      imagen: "src/assets/camisasHombres/camisalinoazul.png",
+      imagen: "public/camisasHombres/camisalinoazul.png",
     },
     {
       id: 4,
