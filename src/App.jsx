@@ -19,8 +19,14 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Logo />} />
-          <Route path="/productos" element={<ItemList productos= {productos}/>} />
-          <Route path="/detail/:id" element={<ItemDetail productos= {productos}/>} />
+          <Route
+            path="/productos"
+            element={<ItemList productos={productos} />}
+          />
+          <Route
+            path="/detail/:id"
+            element={<ItemDetail productos={productos} />}
+          />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </BrowserRouter>
