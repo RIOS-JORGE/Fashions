@@ -1,11 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import ApiHombres from "./Api/ApiHombres";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Logo from "./components/Logo/Logo";
 import NavBar from "./components/NavBar/NavBar";
-import ApiHombres from "./Api/ApiHombres";
 import ItemList from "./components/ItemList/ItemLIst";
 import ItemDetail from "./components/ItemDetail/ItemDetail";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from "./components/NotFound/NotFound";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -27,7 +28,7 @@ const App = () => {
             path="/detail/:id"
             element={<ItemDetail productos={productos} />}
           />
-          <Route path="*" element={<h1>404</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

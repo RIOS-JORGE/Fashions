@@ -1,13 +1,31 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const ItemListContainer = ({ productos }) => {
+  const [filtrado, setFiltrado] = useState([]);
+  useEffect(()=>setFiltrado(productos),[])
+
+  const Filtrar = (name) => {
+    const filtrar = productos.filter((e) => e.nombre.toLowerCase().includes(name));
+    setFiltrado(filtrar)
+    console.log(filtrar);
+  };
+
+  const entrada = (e) => Filtrar(e.target.value);
+
   return (
     <>
-      <div className="divContainer w-full text-white bg-black pt-8">
+      <div className="divContainer w-full h-full text-white bg-black pt-8">
+        <input
+          id="input"
+          onChange={entrada}
+          type="text"
+          className="text-yellow-400 bg-black p-2 m-2 rounded-lg shadow-lg shadow-yellow-400"
+        />
         <div className=" flex flex-wrap">
-          {productos.map((e, i) => (
+          {filtrado.map((e) => (
             <div
-              key={i}
+              key={e.id}
               className="w-64 h-auto rounded-lg shadow-lg shadow-yellow-400 p-4 mx-auto m-4"
             >
               <img src={e.imagen} className="h-44 m-auto bg-black"></img>

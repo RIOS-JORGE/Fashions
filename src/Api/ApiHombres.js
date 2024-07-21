@@ -65,7 +65,7 @@ const apiHombres = {
       imagen: "src/assets/pantalonesHombres/pantalóncargoverde.png",
     },
     {
-      id: 8,
+      id: 9,
       nombre: "Pantalón de vestir gris",
       precio: 54.99,
       descripcion:
@@ -73,7 +73,7 @@ const apiHombres = {
       imagen: "src/assets/pantalonesHombres/pantalóndevestirgris.png",
     },
     {
-      id: 9,
+      id: 10,
       nombre: "Shorts deportivos negros",
       precio: 29.99,
       descripcion:
@@ -81,7 +81,7 @@ const apiHombres = {
       imagen: "src/assets/pantalonesHombres/shortsdeportivosnegros.png",
     },
     {
-      id: 10,
+      id: 11,
       nombre: "Zapatos de vestir negros",
       precio: 79.99,
       descripcion:
@@ -89,7 +89,7 @@ const apiHombres = {
       imagen: "src/assets/zapatosHombres/zapatosdevestirnegros.png",
     },
     {
-      id: 11,
+      id: 12,
       nombre: "Zapatillas deportivas blancas",
       precio: 59.99,
       descripcion:
@@ -97,7 +97,7 @@ const apiHombres = {
       imagen: "src/assets/zapatosHombres/zapatillasdeportivasblancas.png",
     },
     {
-      id: 12,
+      id: 13,
       nombre: "Botas de cuero marrón",
       precio: 89.99,
       descripcion:
@@ -105,7 +105,7 @@ const apiHombres = {
       imagen: "src/assets/zapatosHombres/botasdecueromarrón.png",
     },
     {
-      id: 13,
+      id: 14,
       nombre: "Mocasines clásicos",
       precio: 69.99,
       descripcion:
@@ -113,7 +113,7 @@ const apiHombres = {
       imagen: "src/assets/zapatosHombres/mocasinesclásicos.png",
     },
     {
-      id: 14,
+      id: 15,
       nombre: "Sandalias deportivas",
       precio: 34.99,
       descripcion:
@@ -127,7 +127,7 @@ const ApiHombres = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(apiHombres);
-    }, 0);
+    }, 900);
   });
 };
 

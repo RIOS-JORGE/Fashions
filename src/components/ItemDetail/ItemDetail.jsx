@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import IMG from "../Logo/portada.webp";
-import ApiHombres from "../../Api/ApiHombres";
+import IMG from "../../assets/camisasHombres/camisablanca.png";
 
-function ItemDetail() {
+const ItemDetail = ({ productos }) => {
   const { id } = useParams();
-  const [productos, setProductos] = useState([]);
-  useEffect(() => {
-    ApiHombres().then((e) => setProductos(e.productosMasculinos));
-  }, []);
+
   const [item, setItem] = useState({});
 
   useEffect(
@@ -37,6 +33,6 @@ function ItemDetail() {
       )}
     </>
   );
-}
+};
 
 export default ItemDetail;
