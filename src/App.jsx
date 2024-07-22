@@ -21,11 +21,27 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Logo />} />
           <Route
-            path="/productos"
-            element={<ItemList productos={productos} />}
+            path="/productos/man"
+            element={<ItemList productos={productos} categoria="man" />}
           />
           <Route
-            path="/detail/:id"
+            path="/productos/woman"
+            element={<ItemList productos={productos} categoria="woman" />}
+          />
+          <Route
+            path="/productos/childrens"
+            element={<ItemList productos={productos} categoria="childrens" />}
+          />
+          <Route
+            path="/productos/man/detail/:id"
+            element={<ItemDetail productos={productos} />}
+          />
+          <Route
+            path="/productos/woman/detail/:id"
+            element={<ItemDetail productos={productos} />}
+          />
+          <Route
+            path="/productos/childrens/detail/:id"
             element={<ItemDetail productos={productos} />}
           />
           <Route path="*" element={<NotFound />} />

@@ -5,7 +5,7 @@ import IMG from "../../assets/camisasHombres/camisablanca.png";
 const ItemDetail = ({ productos }) => {
   const { id } = useParams();
 
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState();
 
   useEffect(
     () => setItem(productos.find((e) => e.id === parseInt(id))),
