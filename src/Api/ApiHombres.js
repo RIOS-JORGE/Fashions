@@ -6,7 +6,7 @@ const apiHombres = {
       precio: 39.99,
       descripcion:
         "Camisa clásica de vestir blanca, ideal para ocasiones formales.",
-      imagen: "../src/assets/camisasHombres/camisablanca.png",
+      imagen: "../../assets/camisasHombres/camisablanca.png",
     },
     {
       id: 2,
