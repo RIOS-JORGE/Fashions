@@ -11,7 +11,6 @@ const ItemDetail = ({ productos }) => {
     setItem(productos.find((e) => e.id === parseInt(id)))
   }, [id, productos]);
 
-  console.log(IMG.replace(/src/,"manzana"))
   return (
     <>
       {item && (
