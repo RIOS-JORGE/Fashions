@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const ItemListContainer = ({ productos, categoria }) => {
-
   const [filtrado, setFiltrado] = useState([]);
   useEffect(() => setFiltrado(productos), []);
 
