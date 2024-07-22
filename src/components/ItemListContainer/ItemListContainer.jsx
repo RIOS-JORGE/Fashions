@@ -22,6 +22,7 @@ const ItemListContainer = ({ productos, categoria }) => {
           id="input"
           onChange={entrada}
           type="text"
+          placeholder="Buscar Producto"
           className="text-yellow-400 bg-black p-2 m-2 rounded-lg shadow-lg shadow-yellow-400"
         />
         <div className=" flex flex-wrap">
