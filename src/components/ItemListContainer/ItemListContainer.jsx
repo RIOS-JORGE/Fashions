@@ -12,6 +12,7 @@ const ItemListContainer = ({ productos, categoria }) => {
     setFiltrado(filtrar);
   };
 
+  console.log(filtrado)
   const entrada = (e) => Filtrar(e.target.value);
 
   return (
