@@ -127,7 +127,7 @@ const ApiHombres = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(apiHombres);
-    }, 900);
+    }, 1500);
   });
 };
 

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IMG from "../../assets/camisasHombres/camisablanca.png";
+import { AppContext } from "../AppContext/AppContext";
 
-const ItemDetail = ({ productos }) => {
+const ItemDetail = () => {
+  const {productos} = useContext(AppContext)
   const { id } = useParams();
 
   const [item, setItem] = useState();

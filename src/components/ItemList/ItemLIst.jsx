@@ -1,16 +1,16 @@
+import { useContext } from "react";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
+import Loader from "../Loader/Loader";
+import { AppContext } from "../AppContext/AppContext";
 
-const ItemList = ({ productos, categoria }) => {
+const ItemList = ({categoria}) => {
+  const {productos} = useContext(AppContext)
   return (
     <>
       {productos.length === 0 ? (
-        <div className=" flex flex-col justify-center items-center h-screen bg-black">
-          <h1 className=" text-5xl text-yellow-400  z-10 shadow-lg shadow-yellow-400 mb-9 sm:text-7xl">
-            Loading ...
-          </h1>
-        </div>
+        <Loader />
       ) : (
-        <ItemListContainer productos={productos} categoria={categoria} />
+        <ItemListContainer categoria={categoria} />
       )}
     </>
   );

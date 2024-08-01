@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../AppContext/AppContext";
 
-const ItemListContainer = ({ productos, categoria }) => {
+const ItemListContainer = ({categoria}) => {
+
+  const { productos, agregarCarrito } = useContext(AppContext)
+
   const [filtrado, setFiltrado] = useState([]);
   useEffect(() => setFiltrado(productos), []);
 
@@ -12,7 +16,6 @@ const ItemListContainer = ({ productos, categoria }) => {
     setFiltrado(filtrar);
   };
 
-  console.log(filtrado)
   const entrada = (e) => Filtrar(e.target.value);
 
   return (
@@ -40,7 +43,10 @@ const ItemListContainer = ({ productos, categoria }) => {
                 </button>
               </Link>
 
-              <button className="text-yellow-400 my-2 rounded-lg shadow-lg shadow-yellow-400 p-2">
+              <button
+                onClick={() => agregarCarrito(e.id)}
+                className="text-yellow-400 my-2 rounded-lg shadow-lg shadow-yellow-400 p-2"
+              >
                 add to Car
               </button>
             </div>
