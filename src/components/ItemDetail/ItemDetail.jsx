@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import IMG from "../../assets/camisasHombres/camisablanca.png";
+import IMG from "../../assets/camisasHombres/camisarayada.png";
 import { AppContext } from "../AppContext/AppContext";
 
 const ItemDetail = () => {
@@ -12,6 +12,7 @@ const ItemDetail = () => {
   useEffect(() => {
     setItem(productos.find((e) => e.id === parseInt(id)))
   }, [id, productos]);
+  console.log(IMG)
 
   return (
     <>
@@ -22,7 +23,7 @@ const ItemDetail = () => {
         >
           <div className=" flex flex-wrap">
             <div className="w-64 h-auto rounded-lg shadow-lg shadow-yellow-400 p-4 mx-auto m-4">
-              <img src={item.imagen} className="h-44 m-auto bg-black"></img>
+              <img src={IMG} className="h-44 m-auto bg-black"></img>
               <h1 className="text-yellow-400 my-2">U$D {item.precio}</h1>
               <p className="text-yellow-400 h-20 my-2">{item.descripcion}</p>
               <button className="text-yellow-400 my-2 rounded-lg shadow-lg shadow-yellow-400 p-2">
