@@ -4,6 +4,8 @@ Este es un proyecto de React creado como parte de una práctica para aprender a 
 
 El e-commerce se llamará Fashions
 
+Tecnologías
+
     React
     CSS
     Tailwind CSS
