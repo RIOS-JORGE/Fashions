@@ -2,8 +2,7 @@ React Flex
 
 Este es un proyecto de React creado como parte de una práctica para aprender a manejar componentes, estados y props. El objetivo principal es desarrollar una aplicación web interactiva y funcional como un e-commerce.
 
-El e-commerce se llamará lectulocu y será una tienda de libros. Quiero que tenga buscador por categorías y precios.
-Tecnologías
+El e-commerce se llamará Fashions
 
     React
     CSS
