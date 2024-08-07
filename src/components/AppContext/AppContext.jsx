@@ -12,11 +12,7 @@ export const AppProvider = ({ children }) => {
     ApiHombres().then((e) => setProductos(e.productosMasculinos));
   }, []);
 
-  const [storage, setStorage] = useState(
-    JSON.parse(localStorage.getItem("storage")) || []
-  );
-
-  //const storage = JSON.parse(localStorage.getItem("storage")) || [];
+  const storage = JSON.parse(localStorage.getItem("storage")) || [];
 
   const [carrito, setCarrito] = useState(storage);
   const [cantidad, setCantidad] = useState(1);
