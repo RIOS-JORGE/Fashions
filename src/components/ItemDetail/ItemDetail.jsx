@@ -18,7 +18,7 @@ import IMG15 from "../../assets/zapatosHombres/sandaliasdeportivas.png";
 import { AppContext } from "../AppContext/AppContext";
 
 const ItemDetail = () => {
-  const {productos} = useContext(AppContext)
+  const {productos, agregarCarrito} = useContext(AppContext)
   const { id } = useParams();
 
   const [item, setItem] = useState();
@@ -39,7 +39,7 @@ const ItemDetail = () => {
               <img src={item.imagen} className="h-44 m-auto bg-black"></img>
               <h1 className="text-yellow-400 my-2">U$D {item.precio}</h1>
               <p className="text-yellow-400 h-20 my-2">{item.descripcion}</p>
-              <button className="text-yellow-400 my-2 rounded-lg shadow-lg shadow-yellow-400 p-2">
+              <button onClick={() => agregarCarrito(item.id)} className="text-yellow-400 my-2 rounded-lg shadow-lg shadow-yellow-400 p-2">
                 add to Car
               </button>
             </div>

@@ -36,7 +36,7 @@ const ItemListContainer = ({categoria}) => {
             >
               <img src={e.imagen} className="h-44 m-auto bg-black"></img>
               <h1 className="text-yellow-400 my-2">U$D {e.precio}</h1>
-              <p className="text-yellow-400 h-20 my-2">{e.descripcion}</p>
+              <h2 className="text-yellow-400 text-2xl h-20 my-2">{e.nombre}</h2>
               <Link to={`/productos/${categoria}/detail/${e.id}`}>
                 <button className="text-yellow-400 my-2 rounded-lg shadow-lg shadow-yellow-400 p-2 block">
                   Detail

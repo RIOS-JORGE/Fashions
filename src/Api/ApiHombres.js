@@ -7,6 +7,7 @@ const apiHombres = {
       descripcion:
         "Camisa clásica de vestir blanca, ideal para ocasiones formales.",
       imagen: "/assets/camisablanca-B-qEjAlw.png",
+      cantidad: 0,
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ const apiHombres = {
       descripcion:
         "Camisa casual de manga larga con patrón de cuadros, perfecta para un look relajado.",
       imagen: "/assets/camisarayada-BagNVPi7.png",
+      cantidad: 0,
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ const apiHombres = {
       descripcion:
         "Camisa ligera de lino en color azul, ideal para climas cálidos.",
       imagen: "/assets/camisalinoazul-L3UH9oDA.png",
+      cantidad: 0,
     },
     {
       id: 4,
@@ -31,6 +34,7 @@ const apiHombres = {
       descripcion:
         "Camisa informal de mezclilla en tono azul claro, perfecta para un estilo urbano.",
       imagen: "/assets/camisamezclilla-_Sq1444T.png",
+      cantidad: 0,
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ const apiHombres = {
       descripcion:
         "Camisa polo negra de algodón, cómoda y versátil para el día a día.",
       imagen: "/assets/camisapolonegra-CaWg-nof.png",
+      cantidad: 0,
     },
     {
       id: 6,
@@ -47,6 +52,7 @@ const apiHombres = {
       descripcion:
         "Pantalón chino clásico en color beige, adecuado para cualquier ocasión.",
       imagen: "/assets/pantal%C3%B3nchinobeige-CGMoS8_-.png",
+      cantidad: 0,
     },
     {
       id: 7,
@@ -55,6 +61,7 @@ const apiHombres = {
       descripcion:
         "Jeans ajustados slim fit en tono oscuro, ideales para un look moderno.",
       imagen: "/assets/jeansslimfitoscuros-C0sAgsMV.png",
+      cantidad: 0,
     },
     {
       id: 8,
@@ -63,6 +70,7 @@ const apiHombres = {
       descripcion:
         "Pantalón cargo resistente en color verde militar, perfecto para actividades al aire libre.",
       imagen: "/assets/pantal%C3%B3ncargoverde-BTrjLX9H.png",
+      cantidad: 0,
     },
     {
       id: 9,
@@ -71,6 +79,7 @@ const apiHombres = {
       descripcion:
         "Pantalón de vestir elegante en color gris, ideal para eventos formales.",
       imagen: "/assets/pantal%C3%B3ndevestirgris-BuFslnwS.png",
+      cantidad: 0,
     },
     {
       id: 10,
@@ -79,6 +88,7 @@ const apiHombres = {
       descripcion:
         "Shorts deportivos negros, cómodos y funcionales para actividades físicas.",
       imagen: "/assets/shortsdeportivosnegros-C2vL2Xty.png",
+      cantidad: 0,
     },
     {
       id: 11,
@@ -87,6 +97,7 @@ const apiHombres = {
       descripcion:
         "Zapatos clásicos de vestir en color negro, elegantes y cómodos.",
       imagen: "/assets/zapatosdevestirnegros-D9cV6-QY.png",
+      cantidad: 0,
     },
     {
       id: 12,
@@ -95,6 +106,7 @@ const apiHombres = {
       descripcion:
         "Zapatillas deportivas blancas, ideales para un estilo casual urbano.",
       imagen: "/assets/zapatillasdeportivasblancas-C-psm5Tc.png",
+      cantidad: 0,
     },
     {
       id: 13,
@@ -103,6 +115,7 @@ const apiHombres = {
       descripcion:
         "Botas de cuero genuino en color marrón, perfectas para el invierno.",
       imagen: "/assets/botasdecueromarr%C3%B3n-CLD8SIz5.png",
+      cantidad: 0,
     },
     {
       id: 14,
@@ -111,6 +124,7 @@ const apiHombres = {
       descripcion:
         "Mocasines clásicos en piel, cómodos y versátiles para ocasiones informales.",
       imagen: "/assets/mocasinescl%C3%A1sicos-xLcr5dly.png",
+      cantidad: 0,
     },
     {
       id: 15,
@@ -119,6 +133,7 @@ const apiHombres = {
       descripcion:
         "Sandalias deportivas ajustables, perfectas para el verano y actividades al aire libre.",
       imagen: "/assets/sandaliasdeportivas-CJa7P8sk.png",
+      cantidad: 0,
     },
   ],
 };
