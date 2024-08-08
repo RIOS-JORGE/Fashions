@@ -7,66 +7,72 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [productos, setProductos] = useState([]);
+  const [carrito, setCarrito] = useState(
+    () => JSON.parse(localStorage.getItem("storage")) || []
+  );
+  const [cantidad, setCantidad] = useState(1);
+  const [elementosCarrito, setElementosCarrito] = useState(0);
 
   useEffect(() => {
     ApiHombres().then((e) => setProductos(e.productosMasculinos));
   }, []);
 
-  const storage = JSON.parse(localStorage.getItem("storage")) || [];
-
-  const [carrito, setCarrito] = useState(storage);
-  const [cantidad, setCantidad] = useState(1);
-  const carritoCompras = [...carrito];
-  const [elementosCarrito, setElementosCarrito] = useState();
-
-  const agregarCarrito = (id) => {
-    const filtrarProducto = productos.find((e) => e.id === id);
-
-    if (!carritoCompras.find((e) => e.id === id)) {
-      filtrarProducto.cantidad += cantidad;
-      carritoCompras.push(filtrarProducto);
-      setCarrito(carritoCompras);
-    } else {
-      filtrarProducto.cantidad += cantidad;
-      setCarrito(carritoCompras);
-    }
-  };
-
-  const añadirProducto = (id) => {
-    const carritoCompras = [...carrito];
-    const filtrarProducto = productos.find((e) => e.id === id);
-    filtrarProducto.cantidad += cantidad;
-    setCarrito(carritoCompras);
-  };
-
-  const quitarProducto = (id) => {
-    const filtrarProducto = productos.find((e) => e.id === id);
-
-    if (filtrarProducto.cantidad > 0) {
-      const carritoCompras = [...carrito];
-      filtrarProducto.cantidad -= cantidad;
-      setCarrito(carritoCompras);
-    }
-  };
-
   useEffect(() => {
     localStorage.setItem("storage", JSON.stringify(carrito));
   }, [carrito]);
 
-  useEffect(
-    () =>
-      setElementosCarrito(
-        carritoCompras.map((e) => e.cantidad).reduce((a, b) => a + b, 0)
-      ),
-    [carritoCompras]
-  );
-  /*
-  const snapShot = collection(db, "productMan")
-  getDocs(snapShot).then((e)=>console.log(
-    e.docs[0].data())
-  )
-  */
+  useEffect(() => {
+    setElementosCarrito(
+      carrito.reduce((total, item) => total + item.cantidad, 0)
+    );
+  }, [carrito]);
 
+  const agregarCarrito = (id) => {
+    setCarrito((prevCarrito) => {
+      const productoExistente = prevCarrito.find((item) => item.id === id);
+      if (productoExistente) {
+        return prevCarrito.map((item) =>
+          item.id === id
+            ? { ...item, cantidad: item.cantidad + cantidad }
+            : item
+        );
+      } else {
+        const producto = productos.find((e) => e.id === id);
+        return [...prevCarrito, { ...producto, cantidad }];
+      }
+    });
+  };
+
+  const añadirProducto = (id) => {
+    setCarrito((prevCarrito) =>
+      prevCarrito.map((item) =>
+        item.id === id ? { ...item, cantidad: item.cantidad + cantidad } : item
+      )
+    );
+  };
+
+  const quitarProducto = (id) => {
+    setCarrito((prevCarrito) => {
+      const producto = prevCarrito.find((item) => item.id === id);
+      if (producto) {
+        if (producto.cantidad > cantidad) {
+          return prevCarrito.map((item) =>
+            item.id === id
+              ? { ...item, cantidad: item.cantidad - cantidad }
+              : item
+          );
+        } else {
+          return prevCarrito.filter((item) => item.id !== id);
+        }
+      }
+      return prevCarrito;
+    });
+  };
+
+  /*
+  const snapShot = collection(db, "productMan");
+  getDocs(snapShot).then((e) => console.log(e.docs[0].data()));
+*/
   return (
     <AppContext.Provider
       value={{

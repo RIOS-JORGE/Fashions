@@ -5,11 +5,11 @@ const CartIten = () => {
   const { carrito, añadirProducto, quitarProducto } = useContext(AppContext);
 
   return (
-    <div className=" flex flex-col">
+    <div className=" flex flex-wrap">
       {carrito.map((e) => (
         <div
           key={e.id}
-          className=" max-w-96 min-w-64 h-auto rounded-lg shadow-lg shadow-yellow-400 p-4 m-4"
+          className=" w-64 h-auto rounded-lg shadow-lg shadow-yellow-400 p-4 m-4"
         >
           <img src={e.imagen} className="h-44 m-auto bg-black"></img>
           <h1 className="text-yellow-400 my-2">U$D {e.precio}</h1>
