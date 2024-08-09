@@ -6,6 +6,7 @@ import { AppContext } from "../AppContext/AppContext";
 const CheckoutButton = () => {
   const { carrito, setCarrito, elementosCarrito, pasarANumero } =
     useContext(AppContext);
+
   const [preferenceId, setPreferenceID] = useState(null);
 
   initMercadoPago(import.meta.env.VITE_APP_PUBLICKEY);
@@ -33,17 +34,31 @@ const CheckoutButton = () => {
     }
   };
 
+  const customization = {
+    visual: {
+      buttonBackground: "black",
+      borderRadius: "6px",
+    },
+    checkout: {
+      theme: {
+        elementsColor: "#000000",
+        headerColor: "#000000",
+      },
+    },
+  };
+
   return (
     <div className=" bg-black">
       <button
         type="button"
         onClick={handleBuy}
-        className="text-yellow-400 text-2xl h-20 my-2"
+        className="text-yellow-400 text-2xl m-5 p-2 rounded-lg shadow-lg shadow-yellow-400"
       >
         Checkout
         {preferenceId && (
           <Wallet
             initialization={{ preferenceId: preferenceId }}
+            customization={customization}
             className=" bg-black"
           />
         )}

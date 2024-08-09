@@ -10,23 +10,40 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   // Estado para almacenar la lista de productos
   const [productos, setProductos] = useState([]);
-  
+
   // Estado para almacenar el carrito de compras, cargado desde el localStorage o inicializado como un array vacío
   const [carrito, setCarrito] = useState(
     () => JSON.parse(localStorage.getItem("storage")) || []
   );
-  
+
   // Estado para almacenar la cantidad seleccionada por el usuario
   const [cantidad, setCantidad] = useState(1);
-  
+
   // Estado para almacenar el número total de elementos en el carrito
   const [elementosCarrito, setElementosCarrito] = useState(0);
 
-  // Efecto para cargar los productos desde una API al montar el componente
+  //Firebase Firestore para obtener datos
+
+  useEffect(() => {
+    const DB = async () => {
+      try {
+        const snapShot = await getDocs(collection(db, "productMan"));
+        const datosProductos = snapShot.docs.map((doc) => doc.data());
+        setProductos(datosProductos[0].productosMasculinos)
+      } catch (error) {
+        console.log(error)
+      }
+    };
+    DB()
+  }, [ ]);
+ /* const snapShot = collection(db, "productMan");
+  getDocs(snapShot).then((e) => console.log(e.docs[0].data()));
+
+  //Efecto para cargar los productos desde una API al montar el componente
   useEffect(() => {
     ApiHombres().then((e) => setProductos(e.productosMasculinos));
   }, []);
-
+*/
   // Efecto para guardar el carrito en el localStorage cada vez que se actualice
   useEffect(() => {
     localStorage.setItem("storage", JSON.stringify(carrito));
@@ -100,12 +117,6 @@ export const AppProvider = ({ children }) => {
     return quantity.reduce((total, item) => total + item, 0);
   };
 
-  /*
-  Ejemplo de cómo se puede utilizar Firebase Firestore para obtener datos (comentado por ahora):
-  const snapShot = collection(db, "productMan");
-  getDocs(snapShot).then((e) => console.log(e.docs[0].data()));
-  */
-  
   // Proveemos el contexto a los componentes hijos
   return (
     <AppContext.Provider
@@ -127,4 +138,3 @@ export const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
