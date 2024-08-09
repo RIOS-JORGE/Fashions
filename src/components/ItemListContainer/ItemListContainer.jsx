@@ -20,7 +20,7 @@ const ItemListContainer = ({categoria}) => {
 
   return (
     <>
-      <div className="divContainer w-full h-full text-white bg-black pt-8">
+      <div className="divContainer w-full h-full text-white bg-black pt-8 flex flex-col items-center">
         <input
           id="input"
           onChange={entrada}

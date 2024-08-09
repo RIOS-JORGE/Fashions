@@ -29,21 +29,14 @@ export const AppProvider = ({ children }) => {
       try {
         const snapShot = await getDocs(collection(db, "productMan"));
         const datosProductos = snapShot.docs.map((doc) => doc.data());
-        setProductos(datosProductos[0].productosMasculinos)
+        setProductos(datosProductos[0].productosMasculinos);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
-    DB()
-  }, [ ]);
- /* const snapShot = collection(db, "productMan");
-  getDocs(snapShot).then((e) => console.log(e.docs[0].data()));
-
-  //Efecto para cargar los productos desde una API al montar el componente
-  useEffect(() => {
-    ApiHombres().then((e) => setProductos(e.productosMasculinos));
+    DB();
   }, []);
-*/
+
   // Efecto para guardar el carrito en el localStorage cada vez que se actualice
   useEffect(() => {
     localStorage.setItem("storage", JSON.stringify(carrito));
