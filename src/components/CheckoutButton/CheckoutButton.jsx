@@ -42,7 +42,7 @@ const CheckoutButton = () => {
     checkout: {
       theme: {
         elementsColor: "#000000",
-        headerColor: "#000000",
+        headerColor: "#4287F5",
       },
     },
   };
