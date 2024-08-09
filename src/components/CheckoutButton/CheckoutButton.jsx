@@ -8,7 +8,7 @@ const CheckoutButton = () => {
     useContext(AppContext);
   const [preferenceId, setPreferenceID] = useState(null);
 
-  initMercadoPago(import.meta.env.VITE_APP_PUBLICKEY);
+  initMercadoPago("APP_USR-5f8bfbbe-13b7-4074-beea-c9729444f26b");
 
   const createPreference = async () => {
     try {
