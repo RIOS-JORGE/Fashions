@@ -69,6 +69,15 @@ export const AppProvider = ({ children }) => {
     });
   };
 
+  const pasarANumero = () => {
+    const cantidad = carrito.map((e) => {
+      return Number.parseFloat(e.precio * e.cantidad).toFixed(2);
+    });
+    const quantity = cantidad.map((e) => Number(e));
+
+    return quantity.reduce((total, item) => total + item, 0);
+  };
+
   /*
   const snapShot = collection(db, "productMan");
   getDocs(snapShot).then((e) => console.log(e.docs[0].data()));
@@ -86,6 +95,7 @@ export const AppProvider = ({ children }) => {
         añadirProducto,
         quitarProducto,
         elementosCarrito,
+        pasarANumero,
       }}
     >
       {children}

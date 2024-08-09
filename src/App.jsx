@@ -8,7 +8,6 @@ import NotFound from "./components/NotFound/NotFound";
 import CartItem from "./components/CartItem/CartItem";
 import { AppProvider } from "./components/AppContext/AppContext";
 
-
 const App = () => {
   return (
     <AppProvider>
