@@ -2,7 +2,7 @@ import logo from "./portada.webp";
 const Logo = () => {
   return (
     <>
-      <div className=" flex flex-col justify-center items-center h-full bg-black">
+      <div className=" flex flex-col justify-center items-center vh-developer bg-black">
         <h1 className=" text-5xl text-yellow-400  z-10 shadow-lg shadow-yellow-400 mb-9 sm:text-7xl">
           fashions
         </h1>

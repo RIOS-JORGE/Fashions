@@ -9,8 +9,8 @@ const CartIten = () => {
   return (
     <>
       {carrito.length === 0 ? (
-        <div className=" flex flex-col items-center">
-          <h1 className="text-yellow-400 my-2 text-4xl">Carrito Vacio</h1>
+        <div className=" flex justify-center items-center vh-developer">
+          <h1 className="text-yellow-400 my-2 text-4xl h-10 ">Carrito Vacio</h1>
         </div>
       ) : (
         <div className=" flex flex-col items-center">
