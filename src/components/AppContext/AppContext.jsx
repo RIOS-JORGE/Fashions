@@ -90,13 +90,21 @@ export const AppProvider = ({ children }) => {
               ? { ...item, cantidad: item.cantidad - cantidad }
               : item
           );
-        } else {
+        } /* else {
           // Si la cantidad es menor o igual, eliminamos el producto del carrito
           return prevCarrito.filter((item) => item.id !== id);
-        }
+        } */
       }
       return prevCarrito;
     });
+  };
+
+  // Eliminamos el producto del carrito
+
+  const eliminarProducto = (id) => {
+    const prevCarrito = [...carrito];
+    const removeElement = prevCarrito.filter((item) => item.id !== id);
+    setCarrito(removeElement);
   };
 
   // Función para calcular el total en número a partir del carrito, sumando el precio total de cada producto
@@ -125,6 +133,7 @@ export const AppProvider = ({ children }) => {
         quitarProducto,
         elementosCarrito,
         pasarANumero,
+        eliminarProducto,
       }}
     >
       {children}

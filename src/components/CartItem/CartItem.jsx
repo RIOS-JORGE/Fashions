@@ -3,7 +3,7 @@ import { AppContext } from "../AppContext/AppContext";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
 
 const CartIten = () => {
-  const { carrito, añadirProducto, quitarProducto } = useContext(AppContext);
+  const { carrito, añadirProducto, quitarProducto, eliminarProducto } = useContext(AppContext);
 
   return (
     <div className=" flex flex-col items-center">
@@ -12,8 +12,15 @@ const CartIten = () => {
         {carrito.map((e) => (
           <div
             key={e.id}
-            className=" w-64 h-auto rounded-lg shadow-lg shadow-yellow-400 p-4 m-2"
+            className=" w-64 h-auto rounded-lg shadow-lg shadow-yellow-400 pt-1 p-4 m-2"
           >
+            <button
+                onClick={() => eliminarProducto(e.id)}
+                className="  text-yellow-400 w-10 text-xl rounded-lg shadow-lg shadow-yellow-400 m-2"
+                type="button"
+              >
+                x
+              </button>
             <img src={e.imagen} className="h-44 m-auto bg-black"></img>
             <h1 className="text-yellow-400 my-2">U$D {e.precio}</h1>
             <h1 className="text-yellow-400 my-2">
