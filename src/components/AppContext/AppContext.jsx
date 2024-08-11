@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
-import ApiHombres from "../../Api/ApiHombres";
 import { db } from "../../Firebase/Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 
 // Creamos el contexto de la aplicación
 export const AppContext = createContext();
@@ -22,14 +21,46 @@ export const AppProvider = ({ children }) => {
   // Estado para almacenar el número total de elementos en el carrito
   const [elementosCarrito, setElementosCarrito] = useState(0);
 
-  //Firebase Firestore para obtener datos
+  //Firebase obtener pedidos
+  const [pedidos, setPedidos] = useState();
 
+  //Firebase obtener id
+
+  const [ids, setIDs] = useState();
+
+  //Firebase Firestore para obtener datos de los productos, pedidos, ids
   useEffect(() => {
     const DB = async () => {
       try {
         const snapShot = await getDocs(collection(db, "productMan"));
         const datosProductos = snapShot.docs.map((doc) => doc.data());
         setProductos(datosProductos[0].productosMasculinos);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    DB();
+  }, []);
+
+  useEffect(() => {
+    const DB = async () => {
+      try {
+        const snapShot = await getDocs(collection(db, "pedidos"));
+        const datosProductos = snapShot.docs.map((doc) => doc.data());
+        setPedidos(datosProductos);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    DB();
+  }, []);
+
+  useEffect(() => {
+    const DB = async () => {
+      try {
+        const snapShot = await getDocs(collection(db, "pedidos"));
+        const datosIDs = snapShot.docs.map((doc) => doc.id);
+        setIDs(datosIDs);
       } catch (error) {
         console.log(error);
       }
@@ -100,7 +131,6 @@ export const AppProvider = ({ children }) => {
   };
 
   // Eliminamos el producto del carrito
-
   const eliminarProducto = (id) => {
     const prevCarrito = [...carrito];
     const removeElement = prevCarrito.filter((item) => item.id !== id);
@@ -116,6 +146,30 @@ export const AppProvider = ({ children }) => {
     // Convertimos los valores a números y sumamos el total
     const quantity = cantidad.map((e) => Number(e));
     return quantity.reduce((total, item) => total + item, 0);
+  };
+
+  //Enviar el pedido a Firestore
+  const enviarPedido = () => {
+    try {
+      //Enviar el pedido a la DB pedidos
+      const pedidosRef = collection(db, "pedidos");
+      addDoc(pedidosRef, { pedidos: carrito });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Recuperar pedidos Firestore
+  const recuperarPedidos = async () => {
+    try {
+      const snapShot = await getDocs(collection(db, "pedidos"));
+      const datosProductos = snapShot.docs.map((doc) => doc.data());
+      const id = snapShot.docs.map((doc) => doc.id);
+      setPedidos(datosProductos);
+      setIDs(id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Proveemos el contexto a los componentes hijos
@@ -134,6 +188,10 @@ export const AppProvider = ({ children }) => {
         elementosCarrito,
         pasarANumero,
         eliminarProducto,
+        enviarPedido,
+        recuperarPedidos,
+        pedidos,
+        ids,
       }}
     >
       {children}

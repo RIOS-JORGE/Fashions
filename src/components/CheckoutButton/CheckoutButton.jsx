@@ -4,8 +4,14 @@ import { useContext, useState } from "react";
 import { AppContext } from "../AppContext/AppContext";
 
 const CheckoutButton = () => {
-  const { carrito, setCarrito, elementosCarrito, pasarANumero } =
-    useContext(AppContext);
+  const {
+    carrito,
+    setCarrito,
+    elementosCarrito,
+    pasarANumero,
+    enviarPedido,
+    recuperarPedidos,
+  } = useContext(AppContext);
 
   const [preferenceId, setPreferenceID] = useState(null);
 
@@ -32,6 +38,7 @@ const CheckoutButton = () => {
     if (id) {
       setPreferenceID(id);
     }
+    enviarPedido();
   };
 
   const customization = {

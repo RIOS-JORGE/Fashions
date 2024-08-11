@@ -6,6 +6,7 @@ import ItemList from "./components/ItemList/ItemLIst";
 import ItemDetail from "./components/ItemDetail/ItemDetail";
 import NotFound from "./components/NotFound/NotFound";
 import CartItem from "./components/CartItem/CartItem";
+import Pedidos from "./components/Pedidos/Pedidos";
 import { AppProvider } from "./components/AppContext/AppContext";
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
             path="/productos/childrens/detail/:id"
             element={<ItemDetail />}
           />
+          <Route path="/productos/pedidos" element={<Pedidos />} />
           <Route path="/productos/cartItems" element={<CartItem />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
