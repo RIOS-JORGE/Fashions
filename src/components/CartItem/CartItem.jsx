@@ -15,7 +15,7 @@ const CartIten = () => {
       ) : (
         <div className=" flex flex-col items-center">
           <CheckoutButton />
-          <div className=" flex flex-wrap">
+          <div className=" flex flex-wrap justify-center">
             {carrito.map((e) => (
               <div
                 key={e.id}
