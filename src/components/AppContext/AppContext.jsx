@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { db } from "../../Firebase/Firebase";
 import { addDoc, collection, getDocs } from "firebase/firestore";
+import apiMujer from "../../Api/ApiMujeres";
+import apiNiños from "../../Api/ApiNiños";
 
 // Creamos el contexto de la aplicación
 export const AppContext = createContext();
@@ -9,6 +11,40 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   // Estado para almacenar la lista de productos
   const [productos, setProductos] = useState([]);
+
+  //Funcion para obtener los productos de la DB
+  const productosMasculinosDB = async () => {
+    setProductos("");
+    try {
+      const snapShot = await getDocs(collection(db, "productMan"));
+      const datosProductos = snapShot.docs.map((doc) => doc.data());
+      setProductos(datosProductos[0].productosMasculinos);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const productosFemeninosDB = async () => {
+    setProductos("");
+    try {
+      const snapShot = await apiMujer();
+      const datosProductos = snapShot.productosFemeninos;
+      return setProductos(datosProductos);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const productosNiñosDB = async () => {
+    setProductos("");
+    try {
+      const snapShot = await apiNiños();
+      const datosProductos = snapShot.productosNiños;
+      return setProductos(datosProductos);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // Estado para almacenar el carrito de compras, cargado desde el localStorage o inicializado como un array vacío
   const [carrito, setCarrito] = useState(
@@ -29,18 +65,6 @@ export const AppProvider = ({ children }) => {
   const [ids, setIDs] = useState();
 
   //Firebase Firestore para obtener datos de los productos, pedidos, ids
-  useEffect(() => {
-    const DB = async () => {
-      try {
-        const snapShot = await getDocs(collection(db, "productMan"));
-        const datosProductos = snapShot.docs.map((doc) => doc.data());
-        setProductos(datosProductos[0].productosMasculinos);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    DB();
-  }, []);
 
   useEffect(() => {
     const DB = async () => {
@@ -192,6 +216,9 @@ export const AppProvider = ({ children }) => {
         recuperarPedidos,
         pedidos,
         ids,
+        productosMasculinosDB,
+        productosFemeninosDB,
+        productosNiñosDB,
       }}
     >
       {children}

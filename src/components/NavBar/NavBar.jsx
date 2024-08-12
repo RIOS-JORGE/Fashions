@@ -6,21 +6,47 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../AppContext/AppContext";
 
-const navigation = [
-  { name: "fashions", href: "/", current: true },
-  { name: "Man", href: "/productos/man", current: false },
-  { name: "Woman", href: "/productos/woman", current: false },
-  { name: "Childrens", href: "/productos/childrens", current: false },
-  { name: "Pedidos", href: "/productos/pedidos", current: false },
-];
+
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function NavBar() {
-  
+
+  const { productosMasculinosDB, productosFemeninosDB, productosNiñosDB } = useContext(AppContext);
+  const navigation = [
+    {
+      name: "fashions",
+      href: "/",
+      current: true,
+    },
+    {
+      name: "Man",
+      href: "/productos/man",
+      current: false,
+      function: productosMasculinosDB,
+    },
+    {
+      name: "Woman",
+      href: "/productos/woman",
+      current: false,
+      function: productosFemeninosDB,
+    },
+    {
+      name: "Childrens",
+      href: "/productos/childrens",
+      current: false,
+      function: productosNiñosDB,
+    },
+    { name: "Pedidos", href: "/productos/pedidos", current: false },
+  ];
+
 
   return (
     <Disclosure as="nav" className="bg-gray-800 sticky top-0 z-20">
@@ -49,7 +75,11 @@ export default function NavBar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link to={item.href} key={item.name}>
+                      <Link
+                        to={item.href}
+                        key={item.name}
+                        onClick={item.function}
+                      >
                         <li
                           className={classNames(
                             item.current

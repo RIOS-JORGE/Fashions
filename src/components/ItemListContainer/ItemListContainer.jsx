@@ -7,7 +7,7 @@ const ItemListContainer = ({categoria}) => {
   const { productos, agregarCarrito } = useContext(AppContext)
 
   const [filtrado, setFiltrado] = useState([]);
-  useEffect(() => setFiltrado(productos), []);
+  useEffect(() => setFiltrado(productos), [productos]);
 
   const Filtrar = (name) => {
     const filtrar = productos.filter((e) =>
