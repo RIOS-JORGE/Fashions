@@ -9,17 +9,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../AppContext/AppContext";
 
-
-
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function NavBar() {
-
-  const { productosMasculinosDB, productosFemeninosDB, productosNiñosDB } = useContext(AppContext);
+  const { man, woman, childrens } = useContext(AppContext);
   const navigation = [
     {
       name: "fashions",
@@ -30,23 +25,22 @@ export default function NavBar() {
       name: "Man",
       href: "/productos/man",
       current: false,
-      function: productosMasculinosDB,
+      ref: man,
     },
     {
       name: "Woman",
       href: "/productos/woman",
       current: false,
-      function: productosFemeninosDB,
+      ref: woman,
     },
     {
       name: "Childrens",
       href: "/productos/childrens",
       current: false,
-      function: productosNiñosDB,
+      ref: childrens,
     },
     { name: "Pedidos", href: "/productos/pedidos", current: false },
   ];
-
 
   return (
     <Disclosure as="nav" className="bg-gray-800 sticky top-0 z-20">
@@ -75,11 +69,7 @@ export default function NavBar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link
-                        to={item.href}
-                        key={item.name}
-                        onClick={item.function}
-                      >
+                      <Link to={item.href} key={item.name} ref={item.ref}>
                         <li
                           className={classNames(
                             item.current

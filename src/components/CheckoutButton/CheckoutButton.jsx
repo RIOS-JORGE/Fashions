@@ -5,12 +5,10 @@ import { AppContext } from "../AppContext/AppContext";
 
 const CheckoutButton = () => {
   const {
-    carrito,
     setCarrito,
     elementosCarrito,
     pasarANumero,
     enviarPedido,
-    recuperarPedidos,
   } = useContext(AppContext);
 
   const [preferenceId, setPreferenceID] = useState(null);
@@ -38,7 +36,6 @@ const CheckoutButton = () => {
     if (id) {
       setPreferenceID(id);
     }
-    enviarPedido();
   };
 
   const customization = {
@@ -55,21 +52,29 @@ const CheckoutButton = () => {
   };
 
   return (
-    <div className=" bg-black">
+    <div className=" flex flex-col bg-black">
       <button
         type="button"
         onClick={handleBuy}
         className="text-yellow-400 text-2xl m-5 p-2 rounded-lg shadow-lg shadow-yellow-400"
       >
         Checkout
-        {preferenceId && (
+      </button>
+      {preferenceId && (
+        <button
+          type="button"
+          onClick={() => {
+            enviarPedido();
+            setCarrito([]);
+          }}
+        >
           <Wallet
             initialization={{ preferenceId: preferenceId }}
             customization={customization}
             className=" bg-black"
           />
-        )}
-      </button>
+        </button>
+      )}
     </div>
   );
 };

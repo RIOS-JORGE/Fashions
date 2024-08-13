@@ -1,6 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { db } from "../../Firebase/Firebase";
 import { addDoc, collection, getDocs } from "firebase/firestore";
+import Swal from "sweetalert2";
 import apiMujer from "../../Api/ApiMujeres";
 import apiNiños from "../../Api/ApiNiños";
 
@@ -45,6 +46,30 @@ export const AppProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  const man = React.createRef()
+  const woman = React.createRef()
+  const childrens = React.createRef()
+
+  useEffect(() => {
+
+    const listener = () => {
+      if (man.current) {
+        man.current.addEventListener("click", () => setProductos(productosMasculinosDB))
+      }
+      if (woman.current) {
+        woman.current.addEventListener("click", () => setProductos(productosFemeninosDB))
+      }
+      if (childrens.current) {
+        childrens.current.addEventListener("click", () => setProductos(productosNiñosDB))
+      }
+    }
+
+    listener()
+  })
+
+
+  
 
   // Estado para almacenar el carrito de compras, cargado desde el localStorage o inicializado como un array vacío
   const [carrito, setCarrito] = useState(
@@ -174,6 +199,14 @@ export const AppProvider = ({ children }) => {
 
   //Enviar el pedido a Firestore
   const enviarPedido = () => {
+    Swal.fire({
+      position: "top-center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+
     try {
       //Enviar el pedido a la DB pedidos
       const pedidosRef = collection(db, "pedidos");
@@ -216,9 +249,10 @@ export const AppProvider = ({ children }) => {
         recuperarPedidos,
         pedidos,
         ids,
-        productosMasculinosDB,
-        productosFemeninosDB,
-        productosNiñosDB,
+        man,
+        woman,
+        childrens,
+        Swal,
       }}
     >
       {children}
