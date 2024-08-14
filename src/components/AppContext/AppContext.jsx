@@ -28,7 +28,7 @@ export const AppProvider = ({ children }) => {
   const productosFemeninosDB = async () => {
     setProductos("");
     try {
-      const snapShot = await apiMujer();
+      const snapShot = await getDocs(collection(db, "productWoman"));
       const datosProductos = snapShot.docs.map((doc) => doc.data());
       setProductos(datosProductos[0].productosFemeninos);
     } catch (error) {
