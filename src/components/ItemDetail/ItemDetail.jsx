@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import IMG1 from "../../assets/camisasHombres/camisablanca.png";
 import IMG2 from "../../assets/camisasHombres/camisarayada.png";
 import IMG3 from "../../assets/camisasHombres/camisalinoazul.png";
 import IMG4 from "../../assets/camisasHombres/camisamezclilla.png";
