@@ -25,27 +25,27 @@ Tecnologías Utilizadas:
 
 Estructura del Proyecto:
 
-my-app/
-├── public/
-│ └── favicon.ico
-├── src/
-│ ├── assets/
-│ ├── components/
-│ ├── Firebase/
-│ └── App.jsx
-│ ├── index.css
-│ ├── main.jsx
-│  
-├── .eslintrc.cjs
-├── index.html
-├── postcss.config.js
-├── package.json
-├── package-lock.json
-├── postcss.config.js
-├── README.md
-├── tailwind.config.js
-├── vercel.json
-├── vite.config.js
+    my-app/
+    ├── public/
+    │ └── favicon.ico
+    ├── src/
+    │ ├── assets/
+    │ ├── components/
+    │ ├── Firebase/
+    │ └── App.jsx
+    │ ├── index.css
+    │ ├── main.jsx
+    │  
+    ├── .eslintrc.cjs
+    ├── index.html
+    ├── postcss.config.js
+    ├── package.json
+    ├── package-lock.json
+    ├── postcss.config.js
+    ├── README.md
+    ├── tailwind.config.js
+    ├── vercel.json
+    ├── vite.config.js
 
 Cómo Ejecutar el Proyecto:
 
@@ -92,5 +92,5 @@ Aprende más:
     Documentación de Mercado Pago: https://www.mercadopago.com.ar/developers/es
 
 Agradecimientos especiales a :
-[Profesor] Lucas Javier Ruiz
-[Tutor] Federico Currao
+    [Profesor] Lucas Javier Ruiz
+    [Tutor] Federico Currao
