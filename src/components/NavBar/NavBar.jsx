@@ -40,6 +40,7 @@ export default function NavBar() {
       ref: childrens,
     },
     { name: "Pedidos", href: "/productos/pedidos", current: false },
+    { name: "Contactos", href: "/contactos", current: false },
   ];
 
   return (
