@@ -29,8 +29,8 @@ export const AppProvider = ({ children }) => {
     setProductos("");
     try {
       const snapShot = await apiMujer();
-      const datosProductos = snapShot.productosFemeninos;
-      return setProductos(datosProductos);
+      const datosProductos = snapShot.docs.map((doc) => doc.data());
+      setProductos(datosProductos[0].productosFemeninos);
     } catch (error) {
       console.log(error);
     }
