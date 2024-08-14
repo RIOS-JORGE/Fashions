@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import IMG1 from "../../assets/camisasHombres/camisablanca.png";
+
 import IMG2 from "../../assets/camisasHombres/camisarayada.png";
 import IMG3 from "../../assets/camisasHombres/camisalinoazul.png";
 import IMG4 from "../../assets/camisasHombres/camisamezclilla.png";
@@ -30,10 +30,25 @@ import IMG27 from "../../assets/productosMujeres/zapatillas_deportivas_blancas.p
 import IMG28 from "../../assets/productosMujeres/botas_altas_cuero.png";
 import IMG29 from "../../assets/productosMujeres/sandalias_tacon.png";
 import IMG30 from "../../assets/productosMujeres/botines_tacon_bajo.png";
+import IMG31 from "../../assets/productosNiños/remera_blanca.png"
+import IMG32 from "../../assets/productosNiños/remera_estampada_animales.png"
+import IMG33 from "../../assets/productosNiños/camisa_jean.png"
+import IMG34 from "../../assets/productosNiños/camisa_cuadros.png"
+import IMG35 from "../../assets/productosNiños/vestido_verano.png"
+import IMG36 from "../../assets/productosNiños/vestido_fiesta.png"
+import IMG37 from "../../assets/productosNiños/pantalon_jean.png"
+import IMG38 from "../../assets/productosNiños/leggins.png"
+import IMG39 from "../../assets/productosNiños/zapatillas_deportivas.png"
+import IMG40 from "../../assets/productosNiños/sandalias.png"
+import IMG41 from "../../assets/productosNiños/botas_lluvia.png"
+import IMG42 from "../../assets/productosNiños/conjunto_buzo_pantalon.png"
+import IMG43 from "../../assets/productosNiños/conjunto_short_remera.png"
+import IMG44 from "../../assets/productosNiños/gorra.png"
+import IMG45 from "../../assets/productosNiños/bufanda.png"
 import { AppContext } from "../AppContext/AppContext";
 
 const ItemDetail = () => {
-  console.log(IMG16, IMG17, IMG18, IMG19, IMG20, IMG21, IMG22, IMG23, IMG24, IMG25, IMG26, IMG27, IMG28, IMG29, IMG30);
+  console.log(IMG31,IMG32,IMG33,IMG34,IMG35,IMG36,IMG37,IMG38,IMG39,IMG40,IMG41,IMG42,IMG43,IMG44,IMG45);
   const {productos, agregarCarrito} = useContext(AppContext)
   const { id } = useParams();
 
