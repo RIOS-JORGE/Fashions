@@ -39,37 +39,39 @@ export const AppProvider = ({ children }) => {
   const productosNiñosDB = async () => {
     setProductos("");
     try {
-      const snapShot = await apiNiños();
-      const datosProductos = snapShot.productosNiños;
-      return setProductos(datosProductos);
+      const snapShot = await getDocs(collection(db, "productChildrens"));
+      const datosProductos = snapShot.docs.map((doc) => doc.data());
+      setProductos(datosProductos[0].productosNiños);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const man = React.createRef()
-  const woman = React.createRef()
-  const childrens = React.createRef()
+  const man = React.createRef();
+  const woman = React.createRef();
+  const childrens = React.createRef();
 
   useEffect(() => {
-
     const listener = () => {
       if (man.current) {
-        man.current.addEventListener("click", () => setProductos(productosMasculinosDB))
+        man.current.addEventListener("click", () =>
+          setProductos(productosMasculinosDB)
+        );
       }
       if (woman.current) {
-        woman.current.addEventListener("click", () => setProductos(productosFemeninosDB))
+        woman.current.addEventListener("click", () =>
+          setProductos(productosFemeninosDB)
+        );
       }
       if (childrens.current) {
-        childrens.current.addEventListener("click", () => setProductos(productosNiñosDB))
+        childrens.current.addEventListener("click", () =>
+          setProductos(productosNiñosDB)
+        );
       }
-    }
+    };
 
-    listener()
-  })
-
-
-  
+    listener();
+  });
 
   // Estado para almacenar el carrito de compras, cargado desde el localStorage o inicializado como un array vacío
   const [carrito, setCarrito] = useState(
